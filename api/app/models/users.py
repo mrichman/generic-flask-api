@@ -4,6 +4,8 @@ Users Model
 
 from datetime import datetime as dt
 from flask import current_app
+
+from app.models import Fruits
 from app.utilities.extensions.db import db
 from app.utilities.extensions.bcrypt import bcrypt
 from app.utilities.database import Model, Column, String, Integer, ForeignKey
@@ -22,6 +24,8 @@ class Users(Model):
             password (bytes): Password of user
             admin (bool): Whether or not the user is an admin
     """
+
+    f = Fruits()
 
     __tablename__ = __qualname__.lower()
 
@@ -43,7 +47,7 @@ class Users(Model):
     def set_password(self, password: str):
         """
         Set user password hash
-        
+
         Args:
             password (str): Entered user password
         """
@@ -66,7 +70,7 @@ class Users(Model):
     def __repr__(self) -> str:
         """
         Represent instance as a string.
-        
+
         Returns:
             str: Representation of instance as a string
         """

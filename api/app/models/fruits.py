@@ -1,7 +1,7 @@
 """
 Generic Model
 """
-
+from app.models import Users
 from app.utilities.extensions.db import db
 from app.utilities.extensions.cache import cache
 from app.utilities.helpers import pagination_dict
@@ -19,6 +19,8 @@ class Fruits(Model):
         **kwargs:
             name (str): Name of item
     """
+
+    u = Users()
 
     __tablename__ = __qualname__.lower()
 
